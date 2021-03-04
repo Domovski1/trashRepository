@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BeautySalonModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Surname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Lastname" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Patronymic" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="Gender" Type="String" MaxLength="1" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="DateOfRegistration" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ClientImage" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ServiceClient" Relationship="Self.FK_ServiceClient_Client" FromRole="Client" ToRole="ServiceClient" />
+    <NavigationProperty Name="TagClient" Relationship="Self.FK_TagClient_Client" FromRole="Client" ToRole="TagClient" />
+  </EntityType>
+  <EntityType Name="Service">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DurationInSeconds" Type="Int32" Nullable="false" />
+    <Property Name="Cost" Type="Int32" Nullable="false" />
+    <Property Name="Discount" Type="Int32" />
+    <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MainImagePath" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="ServiceClient" Relationship="Self.FK_ServiceClient_Service" FromRole="Service" ToRole="ServiceClient" />
+  </EntityType>
+  <EntityType Name="ServiceClient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ServiceID" Type="Int32" Nullable="false" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="StartTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Response" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_ServiceClient_Client" FromRole="ServiceClient" ToRole="Client" />
+    <NavigationProperty Name="Service" Relationship="Self.FK_ServiceClient_Service" FromRole="ServiceClient" ToRole="Service" />
+  </EntityType>
+  <EntityType Name="Tag">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="TagClient" Relationship="Self.FK_TagClient_Tag" FromRole="Tag" ToRole="TagClient" />
+  </EntityType>
+  <EntityType Name="TagClient">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ClientID" Type="Int32" Nullable="false" />
+    <Property Name="TagID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_TagClient_Client" FromRole="TagClient" ToRole="Client" />
+    <NavigationProperty Name="Tag" Relationship="Self.FK_TagClient_Tag" FromRole="TagClient" ToRole="Tag" />
+  </EntityType>
+  <Association Name="FK_ServiceClient_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="ServiceClient" Type="Self.ServiceClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceClient">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TagClient_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="1" />
+    <End Role="TagClient" Type="Self.TagClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TagClient">
+        <PropertyRef Name="ClientID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ServiceClient_Service">
+    <End Role="Service" Type="Self.Service" Multiplicity="1" />
+    <End Role="ServiceClient" Type="Self.ServiceClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Service">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ServiceClient">
+        <PropertyRef Name="ServiceID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TagClient_Tag">
+    <End Role="Tag" Type="Self.Tag" Multiplicity="1" />
+    <End Role="TagClient" Type="Self.TagClient" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tag">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TagClient">
+        <PropertyRef Name="TagID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BeautySalonEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Service" EntityType="Self.Service" />
+    <EntitySet Name="ServiceClient" EntityType="Self.ServiceClient" />
+    <EntitySet Name="Tag" EntityType="Self.Tag" />
+    <EntitySet Name="TagClient" EntityType="Self.TagClient" />
+    <AssociationSet Name="FK_ServiceClient_Client" Association="Self.FK_ServiceClient_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="ServiceClient" EntitySet="ServiceClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TagClient_Client" Association="Self.FK_TagClient_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="TagClient" EntitySet="TagClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ServiceClient_Service" Association="Self.FK_ServiceClient_Service">
+      <End Role="Service" EntitySet="Service" />
+      <End Role="ServiceClient" EntitySet="ServiceClient" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TagClient_Tag" Association="Self.FK_TagClient_Tag">
+      <End Role="Tag" EntitySet="Tag" />
+      <End Role="TagClient" EntitySet="TagClient" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
