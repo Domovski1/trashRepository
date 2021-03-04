@@ -1,0 +1,14 @@
+C:\Users\Domovski\source\repos\Graphik\bin\Debug\Graphik.exe.config
+C:\Users\Domovski\source\repos\Graphik\bin\Debug\Graphik.exe
+C:\Users\Domovski\source\repos\Graphik\bin\Debug\Graphik.pdb
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\MainWindow.g.cs
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\App.g.cs
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik_MarkupCompile.cache
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik_MarkupCompile.lref
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\MainWindow.baml
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik.g.resources
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik.Properties.Resources.resources
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik.csproj.GenerateResource.cache
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik.csproj.CoreCompileInputs.cache
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik.exe
+C:\Users\Domovski\source\repos\Graphik\obj\Debug\Graphik.pdb
