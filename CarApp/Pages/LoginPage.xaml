@@ -1,0 +1,81 @@
+﻿<Page x:Class="CarApp.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarApp.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Странца входа">
+
+    <Page.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="PasswordBox">
+            <Setter Property="Width" Value="150"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="23"/>
+            <Setter Property="Margin" Value="0 2"/>
+        </Style>
+    </Page.Resources>
+    
+    
+    <Grid>
+        <StackPanel
+            VerticalAlignment="Center">
+            <TextBlock Text="Логин"/>
+            <TextBox
+                x:Name="TxbLogin"/>
+            <TextBlock Text="Пароль"/>
+            <PasswordBox
+                x:Name="PsbPassword"/>
+            <TextBox
+                Visibility="Collapsed"
+                x:Name="TxbPassword"
+                Text="{Binding ElementName=PsbPassword, Path=Password, Mode=TwoWay}"/>
+            <StackPanel Orientation="Vertical"
+                        Margin="0 2 0 0"
+                        Visibility="Collapsed"
+                        Name="StckCaptcha"
+                        HorizontalAlignment="Center">
+                <StackPanel>
+                    
+                    <TextBlock
+                        TextDecorations="Strikethrough"
+                        x:Name="TxbCaptcha2"/>
+                    <TextBlock
+                        TextDecorations="Strikethrough"
+                        x:Name="TxbCaptcha1"/>
+                </StackPanel>
+                <TextBox
+                    x:Name="TxtCaptcha"/>
+                <Button 
+                        Content="Новая капча"
+                        Name="BtnCaptha"
+                        Click="BtnCaptha_Click"/>
+            </StackPanel>
+
+            <Button
+                x:Name="BtnShowPassword"
+                Click="BtnShowPassword_Click"
+                Content="Показать пароль"/>
+
+            <Button
+                x:Name="BtnLogin"
+                Click="BtnLogin_Click"
+                Content="Войти"/>
+        </StackPanel>
+    </Grid>
+</Page>

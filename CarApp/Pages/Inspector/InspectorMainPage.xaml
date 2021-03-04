@@ -1,0 +1,44 @@
+﻿<Page x:Class="CarApp.Pages.Inspector.InspectorMainPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarApp.Pages.Inspector"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="InspectorMainPage">
+
+    <Grid>
+        <Button
+            Style="{StaticResource BtnBack}"
+            Content="Выйти"
+            Click="BtnToMainPage_Click"/>
+
+        <Label
+            x:Name="TxbTime"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Right"
+            Margin="5"
+            ContentStringFormat="Время сеанса: "
+            />
+
+        <StackPanel
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+            <Button 
+                x:Name="BtnChechFines"
+                Click="BtnChechFines_Click"
+                Content="Просмотреть штрафы"/>
+            <Button 
+                Margin="0 5"
+                Name="BtnNewFine"
+                Click="BtnNewFine_Click"
+                Content="Выписать новые штрафы"/>
+            <Button 
+                Name="BtnCheckAuto"
+                Click="BtnCheckAuto_Click"
+                Content="Проверить авто на имеющиеся штрафы"/>
+        </StackPanel>
+        
+    </Grid>
+</Page>

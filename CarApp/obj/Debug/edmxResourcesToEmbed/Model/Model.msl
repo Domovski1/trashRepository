@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище CarBaseModelContainer" CdmEntityContainer="CarBaseEntities">
+    <EntitySetMapping Name="Car">
+      <EntityTypeMapping TypeName="CarBaseModel.Car">
+        <MappingFragment StoreEntitySet="Car">
+          <ScalarProperty Name="id_modification" ColumnName="id_modification" />
+          <ScalarProperty Name="MarkID" ColumnName="MarkID" />
+          <ScalarProperty Name="ModelID" ColumnName="ModelID" />
+          <ScalarProperty Name="pokolenie" ColumnName="pokolenie" />
+          <ScalarProperty Name="YearAt" ColumnName="YearAt" />
+          <ScalarProperty Name="YearBefore" ColumnName="YearBefore" />
+          <ScalarProperty Name="SeriaID" ColumnName="SeriaID" />
+          <ScalarProperty Name="ModificationID" ColumnName="ModificationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Mark">
+      <EntityTypeMapping TypeName="CarBaseModel.Mark">
+        <MappingFragment StoreEntitySet="Mark">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="TitleRus" ColumnName="TitleRus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Model">
+      <EntityTypeMapping TypeName="CarBaseModel.Model">
+        <MappingFragment StoreEntitySet="Model">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="MarkID" ColumnName="MarkID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Modification">
+      <EntityTypeMapping TypeName="CarBaseModel.Modification">
+        <MappingFragment StoreEntitySet="Modification">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Role">
+      <EntityTypeMapping TypeName="CarBaseModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seria">
+      <EntityTypeMapping TypeName="CarBaseModel.Seria">
+        <MappingFragment StoreEntitySet="Seria">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User">
+      <EntityTypeMapping TypeName="CarBaseModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="roleID" ColumnName="roleID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="History">
+      <EntityTypeMapping TypeName="CarBaseModel.History">
+        <MappingFragment StoreEntitySet="History">
+          <ScalarProperty Name="success" ColumnName="success" />
+          <ScalarProperty Name="TimeLog" ColumnName="TimeLog" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
